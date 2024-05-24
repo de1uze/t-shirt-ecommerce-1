@@ -109,7 +109,7 @@ function printWears(){
             </div>
         
             <div class="products__data">
-                <h2 class="products__price">$${product.price}.00 <span class="products__quantity">| Stock: ${product.stock}</span></h2>
+                <h2 class="products__price">₹${product.price}.00 <span class="products__quantity">| Stock: ${product.stock}</span></h2>
                 <h3 class="products__name">${product.name}</h3>
             
                 <button class="button products__button">
@@ -136,7 +136,7 @@ function printWearsWithId(idWear){
             </div>
         
             <div class="products__data">
-                <h2 class="products__price">$${currentWear.price}.00 <span class="products__quantity">| Stock: ${currentWear.stock}</span></h2>
+                <h2 class="products__price">₹${currentWear.price}.00 <span class="products__quantity">| Stock: ${currentWear.stock}</span></h2>
                 <h3 class="products__name">${currentWear.name}</h3>
             
                 <button class="button products__button">
@@ -189,9 +189,9 @@ function printWearInCart() {
                 <h3 class="cart__title">${name}</h3>
                 <span class="cart__details">
                     Stock: ${stock} | 
-                    <span class="cart__price"> $${price}.00</span>
+                    <span class="cart__price"> ₹${price}.00</span>
                 </span>
-                <span class="cart__subtotal"> Subtotal: $${subTotal}.00</span>
+                <span class="cart__subtotal"> Subtotal: ₹${subTotal}.00</span>
                 <div class="cart__amount">
                     <div class="cart__amount-content">
                         <span class="cart__amount-box minus" >
@@ -325,7 +325,7 @@ function printTotal(){
         acum += curr.price * curr.amount;
         return acum;
     }, 0);
-    cartPriceTotal.textContent = `$${montoTotal}.00`;
+    cartPriceTotal.textContent = `₹${montoTotal}.00`;
 }
 
 
@@ -334,7 +334,7 @@ sellWear.addEventListener("click", (e) => {
     if(e.target.classList.contains("cart__btn")){
         products = products.map((product) => {
             if(objCartShop[product.id]?.id === product.id){
-                cartPriceTotal.textContent = `$0.00`;
+                cartPriceTotal.textContent = `₹0.00`;
                 return{
                     ...product,
                     stock: (product.stock - objCartShop[product.id].amount),
